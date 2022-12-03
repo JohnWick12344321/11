@@ -12,7 +12,15 @@ public class SoldierInfoCollector {
         char category = KatGodString.charAt(0);
         System.out.print("Введите военную специальность: ");
         String specialityString = scanner.nextLine();
-        Speciality speciality = Speciality.valueOf(specialityString);
+        Speciality speciality = null;
+        Speciality[] specialities = Speciality.values();
+        for (int i=0 ; i <specialities.length; i++){
+            if (specialities[i].getSpeciality().compareToIgnoreCase(specialityString)==0){
+                speciality=specialities[i];
+                break;
+            }
+        }
+
         System.out.print("Введите возраст: ");
         int age = scanner.nextInt();
         System.out.print("Введите количество детей: ");
